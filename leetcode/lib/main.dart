@@ -5,11 +5,19 @@ import '../features/number-of-questions/view/solved.dart';
 import '../features/contest/view/contest.dart';
 import '../features/contest-history/view/contest_history.dart';
 import '../features/submissions/view/last_submissions_page.dart';
-// import '../features/get-profile/view-model/user-view-model.dart';
+import 'package:provider/provider.dart';
+import 'features/get-profile/view-model/profileViewModel.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (_) => ProfileViewModel(),
+      child: MyApp(),
+    ),
+  );
 }
+
+
 
 class MyApp extends StatelessWidget {
   @override
