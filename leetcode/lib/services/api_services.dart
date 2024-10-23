@@ -4,13 +4,13 @@ import 'dart:convert';
 import '../features/get-profile/model/model.dart';
 
 class ApiService {
-  final String _baseUrl = 'https://alfa-leetcode-api.onrender.com/neal_wu';
-  final String _apiKey = 'postmanrulz';
+  final String _baseUrl = 'https://alfa-leetcode-api.onrender.com';
 
-  Future<Profile> fetchProfile() async {
+  Future<Profile> fetchProfile(String username) async {
     final response = await http.get(
-      Uri.parse(_baseUrl),
-      headers: {'api-key': _apiKey},
+      Uri.parse('$_baseUrl/$username'),
+      headers: {'api-key': 'postmanrulz'},
+      
     );
 
     if (response.statusCode == 200) {
