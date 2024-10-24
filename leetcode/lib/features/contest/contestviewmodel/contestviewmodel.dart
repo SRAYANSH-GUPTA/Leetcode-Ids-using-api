@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import '../contestmodel/contestmodel.dart';
+import '../../get-profile/view/profile_page.dart';
 
 Future<Contest?> fetchContest() async {
   final url = Uri.parse('https://alfa-leetcode-api.onrender.com/neal_wu/contest');

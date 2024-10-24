@@ -3,6 +3,8 @@ import '../contestviewmodel/contestviewmodel.dart'; // Make sure the path is cor
 import '../contestmodel/contestmodel.dart'; // Import your model
 
 class ContestPage extends StatefulWidget {
+  const ContestPage({super.key});
+
   @override
   _ContestPageState createState() => _ContestPageState();
 }
@@ -28,7 +30,7 @@ class _ContestPageState extends State<ContestPage> {
     return Center(
       child: contest != null
           ? Text('Contest attended: ${contest!.contestAttend}')
-          : CircularProgressIndicator(),
+          : const CircularProgressIndicator(),
     );
   }
 }

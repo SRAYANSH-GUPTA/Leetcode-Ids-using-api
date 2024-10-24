@@ -1,39 +1,39 @@
-class badge {
+class Badge {
   int? badgesCount;
   List<Badges>? badges;
   List<UpcomingBadges>? upcomingBadges;
-  Null? activeBadge;
+  Null activeBadge;
 
-  badge({this.badgesCount, this.badges, this.upcomingBadges, this.activeBadge});
+  Badge({
+    this.badgesCount,
+    this.badges,
+    this.upcomingBadges,
+    this.activeBadge,
+  });
 
-  badge.fromJson(Map<String, dynamic> json) {
-    badgesCount = json['badgesCount'];
-    if (json['badges'] != null) {
-      badges = <Badges>[];
-      json['badges'].forEach((v) {
-        badges!.add(new Badges.fromJson(v));
-      });
-    }
-    if (json['upcomingBadges'] != null) {
-      upcomingBadges = <UpcomingBadges>[];
-      json['upcomingBadges'].forEach((v) {
-        upcomingBadges!.add(new UpcomingBadges.fromJson(v));
-      });
-    }
-    activeBadge = json['activeBadge'];
+  factory Badge.fromJson(Map<String, dynamic> json) {
+    return Badge(
+      badgesCount: json['badgesCount'],
+      badges: (json['badges'] as List?)
+          ?.map((v) => Badges.fromJson(v))
+          .toList(),
+      upcomingBadges: (json['upcomingBadges'] as List?)
+          ?.map((v) => UpcomingBadges.fromJson(v))
+          .toList(),
+      activeBadge: json['activeBadge'],
+    );
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['badgesCount'] = this.badgesCount;
-    if (this.badges != null) {
-      data['badges'] = this.badges!.map((v) => v.toJson()).toList();
+    final data = <String, dynamic>{};
+    data['badgesCount'] = badgesCount;
+    if (badges != null) {
+      data['badges'] = badges!.map((v) => v.toJson()).toList();
     }
-    if (this.upcomingBadges != null) {
-      data['upcomingBadges'] =
-          this.upcomingBadges!.map((v) => v.toJson()).toList();
+    if (upcomingBadges != null) {
+      data['upcomingBadges'] = upcomingBadges!.map((v) => v.toJson()).toList();
     }
-    data['activeBadge'] = this.activeBadge;
+    data['activeBadge'] = activeBadge;
     return data;
   }
 }
@@ -46,19 +46,21 @@ class Badges {
 
   Badges({this.id, this.displayName, this.icon, this.creationDate});
 
-  Badges.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    displayName = json['displayName'];
-    icon = json['icon'];
-    creationDate = json['creationDate'];
+  factory Badges.fromJson(Map<String, dynamic> json) {
+    return Badges(
+      id: json['id'],
+      displayName: json['displayName'],
+      icon: json['icon'],
+      creationDate: json['creationDate'],
+    );
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['displayName'] = this.displayName;
-    data['icon'] = this.icon;
-    data['creationDate'] = this.creationDate;
+    final data = <String, dynamic>{};
+    data['id'] = id;
+    data['displayName'] = displayName;
+    data['icon'] = icon;
+    data['creationDate'] = creationDate;
     return data;
   }
 }
@@ -69,15 +71,17 @@ class UpcomingBadges {
 
   UpcomingBadges({this.name, this.icon});
 
-  UpcomingBadges.fromJson(Map<String, dynamic> json) {
-    name = json['name'];
-    icon = json['icon'];
+  factory UpcomingBadges.fromJson(Map<String, dynamic> json) {
+    return UpcomingBadges(
+      name: json['name'],
+      icon: json['icon'],
+    );
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['name'] = this.name;
-    data['icon'] = this.icon;
+    final data = <String, dynamic>{};
+    data['name'] = name;
+    data['icon'] = icon;
     return data;
   }
 }

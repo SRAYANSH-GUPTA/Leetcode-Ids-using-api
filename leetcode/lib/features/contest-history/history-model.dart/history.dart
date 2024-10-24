@@ -16,10 +16,10 @@ class History {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = {};
-    data['count'] = this.count;
-    if (this.contestHistory != null) {
+    data['count'] = count;
+    if (contestHistory != null) {
       data['contestHistory'] =
-          this.contestHistory!.map((v) => v.toJson()).toList();
+          contestHistory!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -59,15 +59,15 @@ class ContestHistory {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = {};
-    data['attended'] = this.attended;
-    data['rating'] = this.rating;
-    data['ranking'] = this.ranking;
-    data['trendDirection'] = this.trendDirection;
-    data['problemsSolved'] = this.problemsSolved;
-    data['totalProblems'] = this.totalProblems;
-    data['finishTimeInSeconds'] = this.finishTimeInSeconds;
-    if (this.contest != null) {
-      data['contest'] = this.contest!.toJson();
+    data['attended'] = attended;
+    data['rating'] = rating;
+    data['ranking'] = ranking;
+    data['trendDirection'] = trendDirection;
+    data['problemsSolved'] = problemsSolved;
+    data['totalProblems'] = totalProblems;
+    data['finishTimeInSeconds'] = finishTimeInSeconds;
+    if (contest != null) {
+      data['contest'] = contest!.toJson();
     }
     return data;
   }
@@ -86,8 +86,8 @@ class Contest {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = {};
-    data['title'] = this.title;
-    data['startTime'] = this.startTime;
+    data['title'] = title;
+    data['startTime'] = startTime;
     return data;
   }
 }
