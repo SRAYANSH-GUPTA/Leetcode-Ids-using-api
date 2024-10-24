@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../view-model/profileViewModel.dart';
-var username = '';
+import '../../../globals.dart' as globals;
 class ProfilePage extends StatelessWidget {
   final TextEditingController _usernameController = TextEditingController();
 
@@ -30,6 +30,7 @@ class ProfilePage extends StatelessWidget {
                 if (_usernameController.text.isNotEmpty) {
 
                   viewModel.fetchProfile(_usernameController.text);
+                  globals.urls = _usernameController.text;
                 }
               },
               child: const Text('Fetch Profile'),

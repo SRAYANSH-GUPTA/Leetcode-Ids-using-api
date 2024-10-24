@@ -3,13 +3,13 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import '../view-model/submissionviewmodel.dart';
 import '../submissions-model/submissionsmodel.dart';
-
+import '../../../globals.dart' as globals;
 
 // Your existing Sub and Submission classes go here
 
 class LastSubmissionsPage extends StatelessWidget {
   Future<Sub> fetchSubmissionData() async {
-    final url = Uri.parse('https://alfa-leetcode-api.onrender.com/neal_wu/submission');
+    final url = Uri.parse('https://alfa-leetcode-api.onrender.com/${globals.urls}/submission');
     final response = await http.get(url, headers: {
       'api-key': 'postmanrulz',
     });

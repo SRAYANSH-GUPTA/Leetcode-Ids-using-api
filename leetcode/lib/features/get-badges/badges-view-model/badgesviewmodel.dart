@@ -1,9 +1,9 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import '../badges-model/badges.dart';
-
+import '../../../globals.dart' as globals;
 Future<Badge> fetchBadgeData() async {
-  final url = Uri.parse('https://alfa-leetcode-api.onrender.com/neal_wu/badges');
+  final url = Uri.parse('https://alfa-leetcode-api.onrender.com/${globals.urls}/badges');
   final response = await http.get(url, headers: {'api-key': 'postmanrulz'});
 
   if (response.statusCode == 200) {

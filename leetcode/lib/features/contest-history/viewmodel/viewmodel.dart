@@ -1,9 +1,9 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import '../history-model.dart/history.dart'; // Ensure the correct path
-
+import '../../../globals.dart' as globals;
 Future<History?> fetchHistory() async {
-  const url = 'https://alfa-leetcode-api.onrender.com/neal_wu/contest/history';
+  final url = 'https://alfa-leetcode-api.onrender.com/${globals.urls}/contest/history';
 
   try {
     final response = await http.get(Uri.parse(url));

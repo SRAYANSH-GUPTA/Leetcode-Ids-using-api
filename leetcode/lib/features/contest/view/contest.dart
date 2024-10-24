@@ -26,11 +26,14 @@ class _ContestPageState extends State<ContestPage> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Center(
+Widget build(BuildContext context) {
+  return Container(
+    color: Colors.white, // Set the background color to white
+    child: Center(
       child: contest != null
           ? Text('Contest attended: ${contest!.contestAttend}')
           : const CircularProgressIndicator(),
-    );
-  }
+    ),
+  );
+}
 }
