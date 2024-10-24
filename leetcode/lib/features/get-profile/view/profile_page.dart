@@ -11,14 +11,16 @@ class ProfilePage extends StatelessWidget {
     final viewModel = Provider.of<ProfileViewModel>(context);
 
     return Scaffold(
-      appBar: AppBar(title: Text('User Profile')),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            TextField(
-              controller: _usernameController,
-              decoration: InputDecoration(labelText: 'Enter username'),
+            Padding(
+              padding: EdgeInsets.all(20),
+              child: TextField(
+                controller: _usernameController,
+                decoration: InputDecoration(labelText: 'Enter username'),
+              ),
             ),
             SizedBox(height: 20),
             ElevatedButton(
@@ -37,16 +39,25 @@ class ProfilePage extends StatelessWidget {
                     : viewModel.profile == null
                         ? Text('No profile data')
                         : Padding(
-                            padding: const EdgeInsets.all(16.0),
+                            padding: const EdgeInsets.only(top: 0.5),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                CircleAvatar(
-                                  backgroundImage: NetworkImage(viewModel.profile!.avatar ?? ''),
-                                  radius: 50,
+                                Padding(
+                                  padding: EdgeInsets.all(15.0),
+                                  child: CircleAvatar(
+                                    backgroundImage: NetworkImage(viewModel.profile!.avatar ?? ''),
+                                    radius: 50,
+                                  ),
                                 ),
                                 SizedBox(height: 10),
                                 Text('Username: ${viewModel.profile!.username ?? 'N/A'}'),
+                                Text('Name: ${viewModel.profile!.name ?? 'N/A'}'),
+                                Text('Birthday: ${viewModel.profile!.birthday ?? 'N/A'}'),
+                                Text('Ranking: ${viewModel.profile!.ranking ?? 'N/A'}'),
+                                Text('Country: ${viewModel.profile!.country ?? 'N/A'}'),
+
+
                                 // Add other fields as necessary
                               ],
                             ),
