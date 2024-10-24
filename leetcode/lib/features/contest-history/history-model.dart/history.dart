@@ -1,21 +1,21 @@
-class history {
+class History {
   int? count;
   List<ContestHistory>? contestHistory;
 
-  history({this.count, this.contestHistory});
+  History({this.count, this.contestHistory});
 
-  history.fromJson(Map<String, dynamic> json) {
+  History.fromJson(Map<String, dynamic> json) {
     count = json['count'];
     if (json['contestHistory'] != null) {
       contestHistory = <ContestHistory>[];
       json['contestHistory'].forEach((v) {
-        contestHistory!.add(new ContestHistory.fromJson(v));
+        contestHistory!.add(ContestHistory.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = {};
     data['count'] = this.count;
     if (this.contestHistory != null) {
       data['contestHistory'] =
@@ -54,11 +54,11 @@ class ContestHistory {
     totalProblems = json['totalProblems'];
     finishTimeInSeconds = json['finishTimeInSeconds'];
     contest =
-        json['contest'] != null ? new Contest.fromJson(json['contest']) : null;
+        json['contest'] != null ? Contest.fromJson(json['contest']) : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = {};
     data['attended'] = this.attended;
     data['rating'] = this.rating;
     data['ranking'] = this.ranking;
@@ -85,7 +85,7 @@ class Contest {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = {};
     data['title'] = this.title;
     data['startTime'] = this.startTime;
     return data;
