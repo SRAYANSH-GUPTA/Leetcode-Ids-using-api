@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 import '../../../services/api_services.dart';
 import '../model/model.dart';
-import '../view/profile_page.dart';
 
 class ProfileViewModel extends ChangeNotifier {
   final ApiService _apiService = ApiService();
