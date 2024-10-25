@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../badges-view-model/badgesviewmodel.dart'; // Update this path if necessary
 import '../badges-model/badges.dart' as badge; // Update this path if necessary
 
+
 class BadgesPage extends StatefulWidget {
   const BadgesPage({super.key});
 
