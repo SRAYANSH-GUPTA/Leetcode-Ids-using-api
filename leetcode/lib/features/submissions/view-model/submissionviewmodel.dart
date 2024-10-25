@@ -2,8 +2,10 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import '../submissions-model/submissionsmodel.dart';
 import '../../../globals.dart' as globals;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+
 Future<Sub> fetchSubmissionData() async {
-  final url = Uri.parse('https://alfa-leetcode-api.onrender.com/${globals.urls}/submission');
+  final url = Uri.parse(dotenv.env['URL']! + (globals.urls) +'/submission');
   final response = await http.get(url, headers: {
     'api-key': 'postmanrulz',
   });

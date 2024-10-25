@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../view-model/profileViewModel.dart';
 import '../../../globals.dart' as globals;
+
 class ProfilePage extends StatelessWidget {
   final TextEditingController _usernameController = TextEditingController();
 

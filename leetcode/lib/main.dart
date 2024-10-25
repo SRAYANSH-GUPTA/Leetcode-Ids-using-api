@@ -6,8 +6,10 @@ import '../features/contest-history/view/contest_history.dart';
 import '../features/submissions/view/last_submissions_page.dart';
 import 'package:provider/provider.dart';
 import 'features/get-profile/view-model/profileViewModel.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-void main() {
+void main() async {
+  await dotenv.load();
   runApp(
     ChangeNotifierProvider(
       create: (_) => ProfileViewModel(),
@@ -62,25 +64,30 @@ class _MainPageState extends State<MainPage> {
       ) 
       ,title:const Text('LeetCode')),
       body: _pages[_currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentIndex,
-        onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
-          BottomNavigationBarItem(icon: Icon(Icons.star), label: 'Badges'),
-          BottomNavigationBarItem(icon: Icon(Icons.textsms), label: 'Contest'),
-          BottomNavigationBarItem(icon: Icon(Icons.pages), label: 'History'),
-          BottomNavigationBarItem(icon: Icon(Icons.fork_right), label: 'Submissions'),
-        ],
-        selectedItemColor: Colors.blue,
-        unselectedItemColor: Colors.grey,
-        backgroundColor: Colors.black,
-        type: BottomNavigationBarType.fixed,
-        
+      bottomNavigationBar: Theme( data: ThemeData(
+    splashColor: Colors.transparent,
+    highlightColor: Colors.transparent,
+  ),
+        child: BottomNavigationBar(
+          currentIndex: _currentIndex,
+          onTap: (index) {
+            setState(() {
+              _currentIndex = index;
+            });
+          },
+          items: const [
+            BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+            BottomNavigationBarItem(icon: Icon(Icons.star), label: 'Badges'),
+            BottomNavigationBarItem(icon: Icon(Icons.textsms), label: 'Contest'),
+            BottomNavigationBarItem(icon: Icon(Icons.pages), label: 'History'),
+            BottomNavigationBarItem(icon: Icon(Icons.fork_right), label: 'Submissions'),
+          ],
+          selectedItemColor: Colors.blue,
+          unselectedItemColor: Colors.grey,
+          backgroundColor: Colors.black,
+          type: BottomNavigationBarType.fixed,
+          
+        ),
       ),
     );
   }
